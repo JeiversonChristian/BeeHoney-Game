@@ -18,6 +18,7 @@ class Principal:
             self.menu.desenhar(self.tela)
         elif self.game.muda_cena == False:
             self.game.desenhar(self.tela)
+            self.game.atualizar_tela()
 
     def verificar_se_fecha(self, evento: pygame.event.Event) -> None:
 
