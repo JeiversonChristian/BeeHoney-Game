@@ -1,5 +1,5 @@
 import pygame
-from objetos import Objeto_Cenario
+from objetos import Objeto_Cenario, Abelha
 from random import randrange
 
 class Game:
@@ -11,6 +11,7 @@ class Game:
         self.muda_cena = False
         self.aranha = Objeto_Cenario("assets/spider1.png", randrange(0,300), -50)
         self.flor = Objeto_Cenario("assets/florwer1.png", randrange(0,300), -50)
+        self.abelha = Abelha("assets/bee1.png", 150, 600)
 
     def desenhar(self, tela: pygame.surface.Surface) -> None:
 
@@ -18,15 +19,17 @@ class Game:
         self.bg2.desenhar_objeto(tela)
         self.aranha.desenhar_objeto(tela)
         self.flor.desenhar_objeto(tela)
+        self.abelha.desenhar_objeto(tela)
 
     def atualizar_tela(self) -> None:
 
         self.mova_bg()
         self.aranha.anime("spider", 8, 4)
-        self.flor.anime("florwer", 8, 2)
         self.mova_ahanhas()
+        self.flor.anime("florwer", 8, 2)
         self.mova_flores()
-
+        self.abelha.anime("bee", 8, 4)       
+        
     def mova_bg(self) -> None:
 
         self.bg.sprite.rect[1] += 4

@@ -26,17 +26,18 @@ class Principal:
         if evento.type == pygame.QUIT:
             self.rodando_game = False
 
-    def eventos(self) -> None:
+    def verificar_eventos(self) -> None:
         for evento in pygame.event.get():
             self.verificar_se_fecha(evento)
             self.menu.verificar_se_apertou_enter(evento)
+            self.game.abelha.mova_abelha(evento)
 
     def atualizar_tela(self) -> None:
 
         while self.rodando_game == True:
             self.fps.tick(30)
             self.desenhar()
-            self.eventos()
+            self.verificar_eventos()
             pygame.display.update()
 
 game = Principal(360, 640, "BeeHoney")

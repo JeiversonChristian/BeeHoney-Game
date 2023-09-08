@@ -25,4 +25,13 @@ class Objeto_Cenario:
         if self.frame > frame_max:
             self.frame = 1
         self.sprite.image = pygame.image.load("assets/"+nome_imagem+str(self.frame)+".png")
+
+class Abelha(Objeto_Cenario):
+
+    def __init__(self, caminho_img: str, pos_x: int, pos_y: int) -> None:
+        super().__init__(caminho_img, pos_x, pos_y)
         
+    def mova_abelha(self, evento: pygame.event.Event):
+        if evento.type == pygame.MOUSEMOTION:
+            self.sprite.rect[0] = pygame.mouse.get_pos()[0] - self.sprite.image.get_width()/2
+            self.sprite.rect[1] = pygame.mouse.get_pos()[1] - self.sprite.image.get_height()/2
