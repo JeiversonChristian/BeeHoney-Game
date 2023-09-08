@@ -13,6 +13,7 @@ class Principal:
 
     def desenhar(self) -> None:
         
+        self.tela.fill([0,0,0]) # preencher tela de preto (fundo)
         if self.menu.muda_cena == False:
             self.menu.desenhar(self.tela)
 
