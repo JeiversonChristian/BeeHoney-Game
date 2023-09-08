@@ -1,4 +1,5 @@
 import pygame
+from objetos import Objeto_Cenario
 
 class Principal:
 
@@ -7,6 +8,7 @@ class Principal:
         self.tela = pygame.display.set_mode([tamanho_x, tamanho_y])
         self.titulo = pygame.display.set_caption(titulo)
         self.rodando_game = True
+        self.tela_start = Objeto_Cenario("assets/start.png", 0, 0)
 
     def desenhar(self) -> None:
         
@@ -25,5 +27,5 @@ class Principal:
             self.verificar_se_fecha()
             pygame.display.update()
 
-game = Principal(320, 640, "BeeHoney")
+game = Principal(360, 640, "BeeHoney")
 game.atualizar_tela()
