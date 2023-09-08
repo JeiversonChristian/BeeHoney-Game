@@ -19,7 +19,7 @@ class Objeto_Cenario:
 
     def anime(self) -> None:
         self.tick += 1
-        if self.tick >=30:
+        if self.tick >= 8:
             self.tick = 0
             self.frame += 1
         if self.frame > 4:
