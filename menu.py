@@ -5,7 +5,7 @@ class Menu:
 
     def __init__(self) -> None:
         
-        self.tela_start = Objeto_Cenario("assets/star.png", 0, 0)
+        self.tela_start = Objeto_Cenario("assets/start.png", 0, 0)
         self.muda_cena = False
 
     def desenhar(self, tela: pygame.surface.Surface) -> None:
