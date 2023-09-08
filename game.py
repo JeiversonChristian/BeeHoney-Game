@@ -30,7 +30,8 @@ class Game:
         self.mova_flores()
         self.abelha.anime("bee", 2, 4)
         self.abelha.testar_colisao(self.aranha.grupo, "aranha")
-        self.abelha.testar_colisao(self.flor.grupo, "flor")       
+        self.abelha.testar_colisao(self.flor.grupo, "flor") 
+        self.game_over()      
         
     def mova_bg(self) -> None:
 
@@ -54,3 +55,7 @@ class Game:
         if self.flor.sprite.rect[1] >= 700:
             self.flor.sprite.kill()
             self.flor = Objeto_Cenario("assets/florwer1.png", randrange(0,300), -50)
+
+    def game_over(self) -> None:
+        if self.abelha.vidas <= 0:
+            self.muda_cena = True

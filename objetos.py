@@ -30,8 +30,12 @@ class Abelha(Objeto_Cenario):
 
     def __init__(self, caminho_img: str, pos_x: int, pos_y: int) -> None:
         super().__init__(caminho_img, pos_x, pos_y)
+
+        self.vidas = 3
+        self.pontos = 0
         
     def mova_abelha(self, evento: pygame.event.Event) -> None:
+
         if evento.type == pygame.MOUSEMOTION:
             self.sprite.rect[0] = pygame.mouse.get_pos()[0] - self.sprite.image.get_width()/2
             self.sprite.rect[1] = pygame.mouse.get_pos()[1] - self.sprite.image.get_height()/2
@@ -41,7 +45,7 @@ class Abelha(Objeto_Cenario):
         nome = nome
         colidiu = pygame.sprite.spritecollide(self.sprite, grupo, True) 
         if nome == "flor" and colidiu:
-            print("flor")
+            self.pontos += 1
         elif nome == "aranha" and colidiu:
-            print("aranha")
+            self.vidas -= 1
  

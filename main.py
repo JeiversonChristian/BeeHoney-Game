@@ -15,6 +15,7 @@ class Principal:
 
     def desenhar(self) -> None:
         
+        self.tela.fill([0,0,0])
         if self.menu.muda_cena == False:
             self.menu.desenhar(self.tela)
         elif self.game.muda_cena == False:
@@ -29,8 +30,10 @@ class Principal:
     def verificar_eventos(self) -> None:
         for evento in pygame.event.get():
             self.verificar_se_fecha(evento)
-            self.menu.verificar_se_apertou_enter(evento)
-            self.game.abelha.mova_abelha(evento)
+            if self.menu.muda_cena == False:
+                self.menu.verificar_se_apertou_enter(evento)
+            elif self.game.muda_cena == False:
+                self.game.abelha.mova_abelha(evento)
 
     def atualizar_tela(self) -> None:
 
