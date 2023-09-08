@@ -12,7 +12,7 @@ class Principal:
 
     def desenhar(self) -> None:
         
-        pass
+        self.tela_start.desenhar_objeto(self.tela)
 
     def verificar_se_fecha(self) -> None:
 
