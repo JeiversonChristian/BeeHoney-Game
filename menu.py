@@ -16,3 +16,4 @@ class Menu:
         if evento.type == pygame.KEYDOWN:
             if evento.key == pygame.K_RETURN: # Tecla Enter
                 self.muda_cena = True
+                
