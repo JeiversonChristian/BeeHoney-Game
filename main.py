@@ -1,5 +1,6 @@
 import pygame
 from menu import Menu
+from game import Game
 
 class Principal:
 
@@ -9,11 +10,14 @@ class Principal:
         self.titulo = pygame.display.set_caption(titulo)
         self.rodando_game = True
         self.menu = Menu()
+        self.game = Game()
 
     def desenhar(self) -> None:
         
         if self.menu.muda_cena == False:
             self.menu.desenhar(self.tela)
+        elif self.game.muda_cena == False:
+            self.game.desenhar(self.tela)
 
     def verificar_se_fecha(self, evento: pygame.event.Event) -> None:
 
