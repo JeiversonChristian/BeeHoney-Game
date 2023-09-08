@@ -11,6 +11,7 @@ class Principal:
         self.rodando_game = True
         self.menu = Menu()
         self.game = Game()
+        self.fps = pygame.time.Clock()
 
     def desenhar(self) -> None:
         
@@ -33,6 +34,7 @@ class Principal:
     def atualizar_tela(self) -> None:
 
         while self.rodando_game == True:
+            self.fps.tick(30)
             self.desenhar()
             self.eventos()
             pygame.display.update()
