@@ -11,6 +11,6 @@ class Objeto_Cenario:
         self.sprite.rect[0] = pos_x
         self.sprite.rect[1] = pos_y
 
-    def desenhar_objeto(self, tela: pygame.surface.Surface):
+    def desenhar_objeto(self, tela: pygame.surface.Surface) -> None:
         
         self.grupo.draw(tela)
