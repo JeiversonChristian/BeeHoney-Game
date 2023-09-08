@@ -23,8 +23,8 @@ class Game:
 
     def mova_bg(self) -> None:
 
-        self.bg.sprite.rect[1] += 1
-        self.bg2.sprite.rect[1] += 1
+        self.bg.sprite.rect[1] += 4
+        self.bg2.sprite.rect[1] += 4
         if self.bg.sprite.rect[1] >= 640:
             self.bg.sprite.rect[1] = 0
         if self.bg2.sprite.rect[1] >= 0:
