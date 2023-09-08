@@ -22,7 +22,8 @@ class Game:
     def atualizar_tela(self) -> None:
 
         self.mova_bg()
-        self.aranha.anime()
+        self.aranha.anime("spider", 8, 4)
+        self.flor.anime("florwer", 8, 2)
         self.mova_ahanhas()
         self.mova_flores()
 
@@ -44,7 +45,7 @@ class Game:
 
     def mova_flores(self) -> None:
 
-        self.flor.sprite.rect[1] += 6
+        self.flor.sprite.rect[1] += 5
         if self.flor.sprite.rect[1] >= 700:
             self.flor.sprite.kill()
             self.flor = Objeto_Cenario("assets/florwer1.png", randrange(0,300), -50)

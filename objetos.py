@@ -17,12 +17,12 @@ class Objeto_Cenario:
         
         self.grupo.draw(tela)
 
-    def anime(self) -> None:
+    def anime(self, nome_imagem: str, tick_max: int, frame_max: int) -> None:
         self.tick += 1
-        if self.tick >= 8:
+        if self.tick >= tick_max:
             self.tick = 0
             self.frame += 1
-        if self.frame > 4:
+        if self.frame > frame_max:
             self.frame = 1
-        self.sprite.image = pygame.image.load("assets/spider"+str(self.frame)+".png")
+        self.sprite.image = pygame.image.load("assets/"+nome_imagem+str(self.frame)+".png")
         
