@@ -28,7 +28,9 @@ class Game:
         self.mova_ahanhas()
         self.flor.anime("florwer", 8, 2)
         self.mova_flores()
-        self.abelha.anime("bee", 8, 4)       
+        self.abelha.anime("bee", 2, 4)
+        self.abelha.testar_colisao(self.aranha.grupo, "aranha")
+        self.abelha.testar_colisao(self.flor.grupo, "flor")       
         
     def mova_bg(self) -> None:
 
