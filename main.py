@@ -13,7 +13,8 @@ class Principal:
 
     def desenhar(self) -> None:
         
-        self.menu.desenhar(self.tela)
+        if self.menu.muda_cena == False:
+            self.menu.desenhar(self.tela)
 
     def verificar_se_fecha(self, evento: pygame.event.Event) -> None:
 
