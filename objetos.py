@@ -10,7 +10,15 @@ class Objeto_Cenario:
         self.sprite.rect = self.sprite.image.get_rect()
         self.sprite.rect[0] = pos_x
         self.sprite.rect[1] = pos_y
+        self.frame = 1
 
     def desenhar_objeto(self, tela: pygame.surface.Surface) -> None:
         
         self.grupo.draw(tela)
+
+    def anime(self) -> None:
+        self.frame += 1
+        if self.frame > 4:
+            self.frame = 1
+        self.sprite.image = pygame.image.load("assets/spider"+str(self.frame)+".png")
+        
