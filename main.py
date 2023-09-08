@@ -8,11 +8,10 @@ class Principal:
         self.tela = pygame.display.set_mode([tamanho_x, tamanho_y])
         self.titulo = pygame.display.set_caption(titulo)
         self.rodando_game = True
-        self.tela_start = Objeto_Cenario("assets/start.png", 0, 0)
 
     def desenhar(self) -> None:
         
-        self.tela_start.desenhar_objeto(self.tela)
+        pass
 
     def verificar_se_fecha(self) -> None:
 
