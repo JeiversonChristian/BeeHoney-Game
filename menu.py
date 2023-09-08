@@ -12,7 +12,7 @@ class Menu:
 
         self.tela_start.grupo.draw(tela)
 
-    def verificar_se_apertou_tecla(self, evento: pygame.event.Event) -> None:
+    def verificar_se_apertou_enter(self, evento: pygame.event.Event) -> None:
         if evento.type == pygame.KEYDOWN:
             if evento.key == pygame.K_RETURN: # Tecla Enter
                 self.muda_cena = True
