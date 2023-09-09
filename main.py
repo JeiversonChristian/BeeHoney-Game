@@ -1,5 +1,5 @@
 import pygame
-from menu import Menu
+from menu import Menu, GameOver
 from game import Game
 
 class Principal:
@@ -9,8 +9,9 @@ class Principal:
         self.tela = pygame.display.set_mode([tamanho_x, tamanho_y])
         self.titulo = pygame.display.set_caption(titulo)
         self.rodando_game = True
-        self.menu = Menu()
+        self.menu = Menu("assets/start.png")
         self.game = Game()
+        self.gameover = GameOver("assets/gameover.png")
         self.fps = pygame.time.Clock()
 
     def desenhar(self) -> None:
@@ -21,6 +22,14 @@ class Principal:
         elif self.game.muda_cena == False:
             self.game.desenhar(self.tela)
             self.game.atualizar_tela()
+        elif self.gameover.muda_cena == False:
+            self.gameover.desenhar(self.tela)
+        else:
+            self.menu.muda_cena = False
+            self.game.muda_cena = False
+            self.gameover.muda_cena = False
+            self.game.abelha.vidas = 3
+            self.game.abelha.pontos = 0
 
     def verificar_se_fecha(self, evento: pygame.event.Event) -> None:
 
@@ -34,6 +43,8 @@ class Principal:
                 self.menu.verificar_se_apertou_enter(evento)
             elif self.game.muda_cena == False:
                 self.game.abelha.mova_abelha(evento)
+            else:
+                self.gameover.verificar_se_apertou_enter(evento)
 
     def atualizar_tela(self) -> None:
 
