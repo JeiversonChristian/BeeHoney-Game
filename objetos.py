@@ -31,6 +31,10 @@ class Abelha(Objeto_Cenario):
     def __init__(self, caminho_img: str, pos_x: int, pos_y: int) -> None:
         super().__init__(caminho_img, pos_x, pos_y)
 
+        pygame.mixer.init()
+        self.som_pts = pygame.mixer.Sound("sounds/score.ogg") # sound -> musica curta | Music -> musica grande
+        self.som_bateu = pygame.mixer.Sound("sounds/bateu.ogg")
+        
         self.vidas = 3
         self.pontos = 0
         
@@ -46,8 +50,10 @@ class Abelha(Objeto_Cenario):
         colidiu = pygame.sprite.spritecollide(self.sprite, grupo, True) 
         if nome == "flor" and colidiu:
             self.pontos += 1
+            self.som_pts.play()
         elif nome == "aranha" and colidiu:
             self.vidas -= 1
+            self.som_bateu.play()
  
 class Texto:
 

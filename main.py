@@ -5,6 +5,11 @@ from game import Game
 class Principal:
 
     def __init__(self, tamanho_x: int, tamanho_y: int, titulo: str) -> None:
+
+        pygame.init()
+        pygame.mixer.init()
+        pygame.mixer.music.load("sounds/bg.ogg")
+        pygame.mixer.music.play(-1) # -1 faz repetir a músia em looping
         
         self.tela = pygame.display.set_mode([tamanho_x, tamanho_y])
         self.titulo = pygame.display.set_caption(titulo)
