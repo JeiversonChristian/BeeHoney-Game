@@ -49,3 +49,14 @@ class Abelha(Objeto_Cenario):
         elif nome == "aranha" and colidiu:
             self.vidas -= 1
  
+class Texto:
+
+    def __init__(self, tamanho_texto: int, texto: str) -> None:
+        
+        pygame.font.init()
+        self.fonte = pygame.font.SysFont("Arial bold", tamanho_texto)
+        self.render = self.fonte.render(texto, False, (255,255,255))
+
+    def desenhar(self, tela: pygame.surface.Surface, x: int, y: int) -> None:
+        
+        tela.blit(self.render, (x,y))
