@@ -60,3 +60,7 @@ class Texto:
     def desenhar(self, tela: pygame.surface.Surface, x: int, y: int) -> None:
         
         tela.blit(self.render, (x,y))
+
+    def atualizar(self, texto: str) -> None:
+
+        self.render = self.fonte.render(texto, False, (255,255,255))

@@ -35,7 +35,9 @@ class Game:
         self.abelha.anime("bee", 2, 4)
         self.abelha.testar_colisao(self.aranha.grupo, "aranha")
         self.abelha.testar_colisao(self.flor.grupo, "flor") 
-        self.game_over()      
+        self.game_over()
+        self.texto_pontuacao.atualizar(str(self.abelha.pontos)) 
+        self.texto_vidas.atualizar(str(self.abelha.vidas))   
         
     def mova_bg(self) -> None:
 
